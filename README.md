@@ -11,7 +11,6 @@ Tor SOCKS proxy routes traffic through the Tor network for anonymity.
 
 ```
 sudo apt-get install tor obfs4proxy
-
 ```
 
 
@@ -53,7 +52,6 @@ obfs4 193.30.120.139:40480 576B60FADB228447DD4E46D89CA12B4F4C70A94B cert=DEvknXT
 
 
 ```
-
 UseBridges 1
 ClientTransportPlugin obfs4 exec /usr/bin/obfs4proxy
 Bridge obfs4 65.109.172.40:26101 B2313F3150F1D17C438C9A450B39720BC142E694 cert=4o+I2rET2wZwhm0z5S5a/tOP8Q3IN6KfgASXNcvIqceeBKn75bawiQWTCwNrGSksaLtcEg iat-mode=0
@@ -67,7 +65,6 @@ Log notice file /var/log/tor/notices.log
 # In the Tor configuration file (/etc/tor/torrc), you can specify the SOCKS port and other settings:
 
 SocksPort 9050
-
 ```
 
 
@@ -140,8 +137,6 @@ Each permission group (owner, group, others) is converted to octal:
     r-- = 4 (Same as above)
 
 So, -rw-r--r-- = 644 in octal.
-
-
 ```
 
 
@@ -167,7 +162,6 @@ Configure Proxy Settings:
     
 SOCKS Host: localhost
 Port: 9050
-
 ```
 
 
@@ -178,7 +172,6 @@ Port: 9050
 
 ```
 about:preferences#general -->  Settings
-
 ```
 
 
