@@ -1,11 +1,13 @@
 # tor_scoks_proxy
 
 Tor SOCKS proxy routes traffic through the Tor network for anonymity.
-How to use Tor SOCKS into firefox
 
 
 
-**1st need to install**
+**How to use Tor SOCKS into firefox**
+
+
+**Installation required first:**
 
 ```
 sudo apt-get install tor obfs4proxy
@@ -21,7 +23,7 @@ sudo nano /etc/tor/torrc
 
 
 
-**then paste and save it.**
+**Next, paste the content into the config file and save it**
 
 
 ```
