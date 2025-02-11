@@ -284,6 +284,17 @@ obfs4 51.83.252.70:18309 7FA5CCF98172F8E4073ED331FD86406D80E1C95D cert=+F3w/iZJY
 
 
 
+**ImageMagick to add a 5px skyblue border to src/ image**
+
+
+```
+sudo apt install imagemagick
+chmod +x add_border.sh
+./add_border.sh
+```
+
+ 
+ 
 
 
 
