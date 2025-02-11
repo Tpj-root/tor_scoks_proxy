@@ -1,4 +1,5 @@
 # tor_scoks_proxy
+
 Tor SOCKS proxy routes traffic through the Tor network for anonymity.
 How to use Tor SOCKS into firefox
 
@@ -20,29 +21,20 @@ sudo nano /etc/tor/torrc
 
 
 
-
-
-
-
-
-src/http_test.png
-src/nor_test.png
-src/tor_test.png
-src/firefox_config.png
-src/nor_http_test.png
-src/tor_http_test.png
-
-
-
-
-
 **then paste and save it.**
 
 
+```
+/etc/tor/torrc
+```
 
-#/etc/tor/torrc
-How to get tor Bridges:
+
+**How to get tor Bridges:**
+
+
 go to tele bot
+
+
 
 https://t.me/GetBridgesBot
 
@@ -51,12 +43,15 @@ or
 https://bridges.torproject.org/bridges?transport=obfs4
 
 
+```
 obfs4 95.216.21.221:34233 EC31349E0DD564CB12283CEB52D5D66B2AFEB491 cert=dO8LYOJwwXIG5JWBik9NJWvRj5mGHodZLOE2wmzp3D/4lLLzvz4cQtkhBX/sFuJgZtZsUg iat-mode=0
 obfs4 193.30.120.139:40480 576B60FADB228447DD4E46D89CA12B4F4C70A94B cert=DEvknXT0msOo2buXWfkRMCzQeOWZggjWhDXhU4FRt9qfGssb6n5nbVpGC1w8PN701qONDw iat-mode=0
+```
 
 
 
-------------------------------
+```
+
 UseBridges 1
 ClientTransportPlugin obfs4 exec /usr/bin/obfs4proxy
 Bridge obfs4 65.109.172.40:26101 B2313F3150F1D17C438C9A450B39720BC142E694 cert=4o+I2rET2wZwhm0z5S5a/tOP8Q3IN6KfgASXNcvIqceeBKn75bawiQWTCwNrGSksaLtcEg iat-mode=0
@@ -71,42 +66,56 @@ Log notice file /var/log/tor/notices.log
 
 SocksPort 9050
 
----------------------------
+```
 
 
 
-# need to restart
+
+**need to restart**
+
+```
 sudo systemctl restart tor
+```
 
-#check the status
+
+**check the status**
+
+```
 sudo systemctl status tor
+```
 
 
-### 
-###  for troubleshooting
-### 
+**for troubleshooting**
 
 
-# Verify Tor is using the bridges:
-# Check the Tor logs to ensure it is using the bridges correctly:
+
+Verify Tor is using the bridges:
+Check the Tor logs to ensure it is using the bridges correctly:
+
+```
 sudo journalctl -u tor
+```
 
 
+**Check if the Tor configuration is valid:**
 
-# Check if the Tor configuration is valid:
+```
 sudo tor -f /etc/tor/torrc --verify-config
 sudo dmesg | grep tor
+```
 
 
+**Correct permissions for configuration files and log directories:**
 
-# Correct permissions for configuration files and log directories:
+```
 sudo chown -R tor:tor /var/log/tor /etc/tor
+```
 
 
 
 
+**Correct permissions for configuration file torrc**
 
-# Correct permissions for configuration file torrc
 
 ```
 -rw-r--r--  1 root root 9777 Feb 11 14:02 torrc
@@ -133,10 +142,11 @@ So, -rw-r--r-- = 644 in octal.
 
 ```
 
----------------------------
-###
-### Configuring Firefox to Use SOCKS5 Proxy
-###
+
+
+**Configuring Firefox to Use SOCKS5 Proxy**
+
+```
 Open Firefox:
 Launch your Firefox browser.
 
@@ -156,48 +166,82 @@ Configure Proxy Settings:
 SOCKS Host: localhost
 Port: 9050
 
+```
 
 
---------------------------------
-### 
-### test socks verification
-### 
+```
+about:preferences#general -->  Settings
+
+```
 
 
+**`FIREFOX CONFIG:`**
+
+![](src/firefox_config.png)
+
+
+
+
+
+
+
+
+
+
+
+**test socks verification**
+
+
+```
 localhost:9050
+```
 
 
 
---------------------------------
-### 
-### final verification
-### 
+**Verify IP Address**
 
-
-Verify IP Address:
 Visit a site like check.torproject.org to verify that you are using Tor and that your IP address is masked.
+
 https://check.torproject.org/
 
 
 Check for DNS Leaks:
+
 Ensure there are no DNS or WebRTC leaks by visiting dnsleaktest.com and checking your WebRTC settings.
+
 https://www.dnsleaktest.com/
 
 
-CLI_test
 
+**CLI_test**
+
+
+```
 # torify:
 torify curl https://check.torproject.org/ | grep -i "use Tor"
 
 # torsocks:
 torsocks curl https://check.torproject.org/
+```
 
 
 
------------------------------------
 
 
 
+
+**`WITH OUT TOR HTTPS TEST:`**
+
+![](src/nor_http_test.png)
+
+
+
+
+
+
+**`TOR TEST:`**
+
+![](src/tor_http_test.png)
 
 
 **`DNS TEST AFTER:`**
@@ -206,15 +250,22 @@ torsocks curl https://check.torproject.org/
 
 
 
+**`SPEED TEST:`**
+
+![](src/nor_test.png)
+
+
+
+**`SPEED WITH TOR SOCKS TEST:`**
+
+![](src/tor_test.png)
 
 
 
 
+**DAY_FEB_11_2025**
 
 
-
-
-DAY_FEB_11_2025
 
 ```
 obfs4 91.134.55.73:36233 3CB1AF12EE128DBDF68444C26259AECEAA3B6A07 cert=OJf7i21V9+ZJBG5kOv5RdAxyS9G6o52F+Z/EoY5wPKpTIVyZTFi5/6fWNeJsuHCr9OABPg iat-mode=0
@@ -223,9 +274,9 @@ obfs4 51.83.252.70:18309 7FA5CCF98172F8E4073ED331FD86406D80E1C95D cert=+F3w/iZJY
 
 
 
-about:preferences#general
 
-Settings
+
+
 
 
 
