@@ -107,10 +107,34 @@ sudo dmesg | grep tor
 **Correct permissions for configuration files and log directories:**
 
 ```
+sudo useradd -r tor
+sudo groupadd tor
+sudo usermod -aG tor tor
 sudo chown -R tor:tor /var/log/tor /etc/tor
 ```
 
 
+
+```
+ tor directory has restricted permissions (drwxr-s---), which means only the user tor and members of the tor group have access. Since you're logged in as iamsab (which is not in the tor group), you're not able to access it.
+
+```
+
+
+**Add your user (iamsab) to the tor group:**
+
+
+```
+sudo usermod -aG tor iamsab
+```
+
+**change the permissions temporarily:**
+
+This will allow you to access the directory securely without changing the global permissions.
+
+```
+sudo chmod -R 755 /var/log/tor
+```
 
 
 **Correct permissions for configuration file torrc**
