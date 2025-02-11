@@ -169,6 +169,11 @@ Port: 9050
 ```
 
 
+
+
+
+
+
 ```
 about:preferences#general -->  Settings
 
@@ -183,6 +188,9 @@ about:preferences#general -->  Settings
 
 
 
+**`FIREFOX HTTPS TEST:`**
+
+![](src/http_test.png)
 
 
 
@@ -233,7 +241,6 @@ torsocks curl https://check.torproject.org/
 **`WITH OUT TOR HTTPS TEST:`**
 
 ![](src/nor_http_test.png)
-
 
 
 
